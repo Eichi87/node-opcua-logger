@@ -18,7 +18,14 @@ class Point {
         break
       case 'string':
         if (typeof this.value !== 'string') {
-          this.value = ''
+          this.value = ""
+          if (this.status === 'Good') this.status = 'BadInvalidDataType'
+        }
+        break
+	  case 'localizedText':
+	    this.value = this.value.text
+        if (typeof this.value !== 'string') {
+          this.value = ""
           if (this.status === 'Good') this.status = 'BadInvalidDataType'
         }
         break
